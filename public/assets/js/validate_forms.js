@@ -81,6 +81,8 @@ $(function() {
         selectYears: true
     });
 
+    $(".switch").bootstrapSwitch();
+
     $('div#respuesta').fadeOut(10000);
 
     /******* Editar Usuario *******/
@@ -632,6 +634,111 @@ $(function() {
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
                         $('#comunicacionForm').reset();
+                    $('.btn-primary').attr('disabled', false);
+                    $('div#respuesta').fadeOut(10000);
+                }
+            })  
+            return false;
+        },
+        ignore: 'input[type=hidden], .select2-search__field',
+        errorClass: 'validation-error-label',
+        successClass: 'validation-valid-label',
+        validClass: "validation-valid-label",
+        highlight: function(element, errorClass) { $(element).removeClass(errorClass); },
+        unhighlight: function(element, errorClass) { $(element).removeClass(errorClass); },
+        errorPlacement: function (error, element){ errorPlacement(error, element); },
+        success: function(label) { label.addClass("validation-valid-label").text("Correcto") }
+    });
+
+    /******* Formulario permisos */
+    $("#permisoForm").validate({
+        rules: {
+            cedula: {
+                required: true,
+                number: true
+            },
+            nombre: {
+                required: true
+            },
+            cargo: {
+                required: true
+            },
+            tipo_personal: {
+                required: true
+            },
+            adscrito: {
+                required: true
+            },
+            tipo_permiso: {
+                required: true
+            },
+            duracion: {
+                required: true
+            },
+            fecha_requerida: {
+                required: true
+            }
+        },
+        messages: {
+            cedula: {
+                required: "Ingrese una cédula",
+                number: "Solo ingrese números"
+            },
+            nombre: {
+                required: "Ingrese un nombre"
+            },
+            cargo: {
+                required: "Ingrese un cargo"
+            },
+            tipo_personal: {
+                required: "Ingrese el tipo de personal"
+            },
+            adscrito: {
+                required: "Ingrese en donde está adscrito"
+            },
+            tipo_permiso: {
+                required: "Ingrese el tipo de permiso"
+            },
+            duracion: {
+                required: "Ingrese la duración del permiso"
+            },
+            fecha_requerida: {
+                required: "Seleccione la fecha de inicio del permiso"
+            }
+        },
+        submitHandler: function () {
+            var accion = '';
+            var cargando = '';
+            if($("button#submit").attr('data') == 1)
+            {
+                accion = 'agregado';
+                cargando = '<img src="../assets/images/loader.gif" />';
+            }
+            else if($("button#submit").attr('data') == 0)
+            {
+                accion = 'actualizado';
+                cargando = '<img src="../../assets/images/loader.gif" />';
+            }
+            var token = $("input[name=_token]").val();
+            var formData = new FormData($("form#permisoForm")[0]);
+            $.ajax({
+                url:  $("form#permisoForm").attr('action'),
+                type: $("form#permisoForm").attr('method'),
+                headers: {'X-CSRF-TOKEN' : token},
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend:function(){
+                    $('div#respuesta').css('display', 'block');
+                    $('div#respuesta').html(cargando);
+                    $('.btn-primary').attr('disabled', true);
+                },
+                success:function(respuesta){
+                    var alertMessage = mensajeExito('Comunicación '+accion+' satisfactoriamente.');
+                    $('#respuesta').html(alertMessage);
+                    $('div#respuesta').fadeIn();
+                    if($("button#submit").attr('data') == 1)
+                        $('#permisoForm').reset();
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }

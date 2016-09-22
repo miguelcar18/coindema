@@ -148,7 +148,7 @@ class ComunicacionController extends Controller
         {
             $mensaje = 'Comunicación "'.$this->comunicacion->numero_oficio.'" eliminada satisfactoriamente';
             Session::flash('message-alert', $mensaje);
-            return Redirect::route('comunicacion.index');
+            return Redirect::route('comunicaciones.index');
         }
     }
 }

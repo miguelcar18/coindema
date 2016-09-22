@@ -80,6 +80,17 @@
 						</ul>
 					</li>
 					<li>
+						<a href="#"><i class="icon-bookmark4"></i> <span>Permisos</span></a>
+						<ul>
+							<li @if(Route::getCurrentRoute()->getName() == 'permisos.index' or Route::getCurrentRoute()->getName() == 'permisos.show' or Route::getCurrentRoute()->getName() == 'permisos.edit') class="active" @endif>
+								<a href="{{ URL::route('permisos.index') }}">Listado de permisos</a>
+							</li>
+							<li @if(Route::getCurrentRoute()->getName() == 'permisos.create') class="active" @endif>
+								<a href="{{ URL::route('permisos.create') }}">Agregar permiso</a>
+							</li>
+						</ul>
+					</li>
+					<li>
 						<a href="#"><i class="icon-users4"></i> <span>Usuarios</span></a>
 						<ul>
 							<li @if(Route::getCurrentRoute()->getName() == 'users.index' or Route::getCurrentRoute()->getName() == 'users.show' or Route::getCurrentRoute()->getName() == 'users.edit') class="active" @endif>

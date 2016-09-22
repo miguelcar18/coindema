@@ -35,3 +35,6 @@ Route::resource('inventarios', 'InventarioController');
 
 /*********************Comunicaciones***********************/
 Route::resource('comunicaciones', 'ComunicacionController');
+
+/*********************Permisos*****************************/
+Route::resource('permisos', 'PermisoController');
