@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Departamentos</span> - Listado de departamentos</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('departamentos.index') }}">Departamentos</a></li>
 					<li class="active">Listado de departamentos</li>
 				</ul>
 			</div>
@@ -26,12 +25,12 @@
 		<div class="panel-heading">
 			<h5 class="panel-title">Departamentos registrados</h5>
 		</div>
-		<table class="table datatable-basic" id="tabla">
+		<table class="table datatable-basic table-bordered table-striped table-hover" id="tabla">
 			<thead>
 				<tr>
 					<th>Nombre</th>
 					<th>Notas</th>
-					<th class="text-center">Acciones</th>
+					<th class="text-center" width="10%">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
