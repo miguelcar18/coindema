@@ -43,44 +43,6 @@
 				<div class="content-wrapper">
 					@section('cabecera-contenido')
 					<!-- Page header -->
-					<div class="page-header">
-						<div class="page-header-content">
-							<div class="page-title">
-								<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Forms</span> - Basic Inputs</h4>
-							</div>
-							<div class="heading-elements">
-								<div class="heading-btn-group">
-									<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-									<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
-									<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
-								</div>
-							</div>
-						</div>
-						<div class="breadcrumb-line">
-							<ul class="breadcrumb">
-								<li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
-								<li><a href="form_inputs_basic.html">Forms</a></li>
-								<li class="active">Basic inputs</li>
-							</ul>
-							<ul class="breadcrumb-elements">
-								<li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<i class="icon-gear position-left"></i>
-										Settings
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-										<li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-										<li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-										<li class="divider"></li>
-										<li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
 					<!-- /page header -->
 					@show
 					<!-- Content area -->
@@ -88,133 +50,87 @@
 						@section('contenido')
 						<!-- Horizontal form options -->
 						<div class="row">
-							<div class="col-md-12">
-								<!-- Basic layout-->
-								<form action="#" class="form-horizontal">
-									<div class="panel panel-flat">
-										<div class="panel-heading">
-											<h5 class="panel-title">Basic layout</h5>
-											<div class="heading-elements">
-												<ul class="icons-list">
-							                		<li><a data-action="collapse"></a></li>
-							                		<li><a data-action="reload"></a></li>
-							                		<li><a data-action="close"></a></li>
-							                	</ul>
-						                	</div>
+							<div class="col-md-12 col-sm-12">
+								<div class="panel panel-flat">
+									<div class="panel-heading">
+										<h5 class="panel-title text-center"><b>Sistema para el control de inventario del Departamento de Mantenimiento (COINDEMA)</b></h5>
+									</div>
+									<div class="panel-body">
+										El Sistema para el control de inventario del Departamento de Mantenimiento perteneciente a la Universidad de Oriente Núcleo Monagas (COINDEMA) es desarrollado con la finalidad de llevar un control adecuado del inventario de maquinarias, materiales, equipos, herramientas y vehículos. También permite el registro y manejo de las comunicaciones realizadas y los permisos tramitados.
+									</div>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-office"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Departamentos</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-warning-400 text-warning-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-package"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Inventario</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-car"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Vehículos</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
+											</div>
 										</div>
-
-										<div class="panel-body">
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Name:</label>
-												<div class="col-lg-9">
-													<input type="text" class="form-control" placeholder="Eugene Kopyov">
-												</div>
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-slate-400 text-slate-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-archive"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Comunicaciones</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
 											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Password:</label>
-												<div class="col-lg-9">
-													<input type="password" class="form-control" placeholder="Your strong password">
-												</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-purple-800 text-purple-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-bookmark4"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Permisos</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
 											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Your state:</label>
-												<div class="col-lg-9">
-													<select class="select">
-														<optgroup label="Alaskan/Hawaiian Time Zone">
-															<option value="AK">Alaska</option>
-															<option value="HI">Hawaii</option>
-														</optgroup>
-														<optgroup label="Pacific Time Zone">
-															<option value="CA">California</option>
-															<option value="NV">Nevada</option>
-															<option value="WA">Washington</option>
-														</optgroup>
-														<optgroup label="Mountain Time Zone">
-															<option value="AZ">Arizona</option>
-															<option value="CO">Colorado</option>
-															<option value="WY">Wyoming</option>
-														</optgroup>
-														<optgroup label="Central Time Zone">
-															<option value="AL">Alabama</option>
-															<option value="AR">Arkansas</option>
-															<option value="KY">Kentucky</option>
-														</optgroup>
-														<optgroup label="Eastern Time Zone">
-															<option value="CT">Connecticut</option>
-															<option value="DE">Delaware</option>
-															<option value="FL">Florida</option>
-														</optgroup>
-													</select>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Gender:</label>
-												<div class="col-lg-9">
-													<label class="radio-inline">
-														<input type="radio" class="styled" name="gender" checked="checked">
-														Male
-													</label>
-
-													<label class="radio-inline">
-														<input type="radio" class="styled" name="gender">
-														Female
-													</label>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Your avatar:</label>
-												<div class="col-lg-9">
-													<input type="file" class="file-styled">
-													<span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Tags:</label>
-												<div class="col-lg-9">
-													<select multiple="multiple" data-placeholder="Enter tags" class="select-icons">
-														<optgroup label="Services">
-															<option value="wordpress2" data-icon="wordpress2">Wordpress</option>
-															<option value="tumblr2" data-icon="tumblr2">Tumblr</option>
-															<option value="stumbleupon" data-icon="stumbleupon">Stumble upon</option>
-															<option value="pinterest2" data-icon="pinterest2">Pinterest</option>
-															<option value="lastfm2" data-icon="lastfm2">Lastfm</option>
-														</optgroup>
-														<optgroup label="File types">
-															<option value="pdf" data-icon="file-pdf">PDF</option>
-															<option value="word" data-icon="file-word">Word</option>
-															<option value="excel" data-icon="file-excel">Excel</option>
-															<option value="openoffice" data-icon="file-openoffice">Open office</option>
-														</optgroup>
-														<optgroup label="Browsers">
-															<option value="chrome" data-icon="chrome" selected="selected">Chrome</option>
-															<option value="firefox" data-icon="firefox" selected="selected">Firefox</option>
-															<option value="safari" data-icon="safari">Safari</option>
-															<option value="opera" data-icon="opera">Opera</option>
-															<option value="IE" data-icon="IE">IE</option>
-														</optgroup>
-													</select>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<label class="col-lg-3 control-label">Your message:</label>
-												<div class="col-lg-9">
-													<textarea rows="5" cols="5" class="form-control" placeholder="Enter your message here"></textarea>
-												</div>
-											</div>
-
-											<div class="text-right">
-												<button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-brown-800 text-brown-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-people"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Usuarios</div>
+														<div class="text-muted">10</div>
+													</li>
+												</ul>
 											</div>
 										</div>
 									</div>
-								</form>
-								<!-- /basic layout -->
+								</div>
 							</div>
 						</div>
 						<!-- /vertical form options -->
