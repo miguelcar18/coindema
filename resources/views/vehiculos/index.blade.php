@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Vehiculos</span> - Listado de vehiculos</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('vehiculos.index') }}">Vehiculos</a></li>
 					<li class="active">Listado de vehiculos</li>
 				</ul>
 			</div>

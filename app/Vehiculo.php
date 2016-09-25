@@ -18,7 +18,7 @@ class Vehiculo extends Model
      *
      * @var array
      */
-    protected $fillable = ['unidad', 'marca', 'modelo', 'placa', 'serial', 'carroceria', 'serial_motor', 'color', 'dependencia', 'estado'];
+    protected $fillable = ['unidad', 'marca', 'modelo', 'placa', 'serial', 'carroceria', 'serial_motor', 'color', 'departamento', 'estado'];
 
     public function nombreDepartamento()
     {
