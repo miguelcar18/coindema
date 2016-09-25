@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Inventario</span> - Listado de registros</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('inventarios.index') }}">Inventario</a></li>
 					<li class="active">Listado de registros</li>
 				</ul>
 			</div>
@@ -26,23 +25,23 @@
 		<div class="panel-heading">
 			<h5 class="panel-title">Inventario registrado</h5>
 		</div>
-		<table class="table datatable-basic" id="tabla">
+		<table class="table datatable-basic table-bordered table-striped table-hover" id="tabla">
 			<thead>
 				<tr>
 					<th>Producto</th>
 					<th>Modelo</th>
 					<th>Serial</th>
 					<th>Cantidad</th>
-					<th class="text-center">Acciones</th>
+					<th class="text-center" width="10%">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($inventarios as $inventario)
 				<tr>
-					<td>{{ $inventario->producto }}</td>
+					<td>{{ ucwords(strtolower(utf8_decode($inventario->producto))) }}</td>
 					<td>{{ $inventario->modelo }}</td>
 					<td>{{ $inventario->serial }}</td>
-					<td>{{ $inventario->cantidad }}</td>
+					<td class="text-right">{{ $inventario->cantidad }}</td>
 					<td class="text-center">
 						<a href="{{ URL::route('inventarios.show', $inventario->id) }}" data-rel="tooltip" title="Mostrar {{ $inventario->serial }}" objeto="{{ $inventario->serial }}"> 
                             <span class="btn btn-sm btn-info"> <i class="icon-eye"></i> </span> 

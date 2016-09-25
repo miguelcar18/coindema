@@ -33,7 +33,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Producto:</b></td>
-                    <td>{{ $inventario->producto }}</td>
+                    <td>{{ ucwords(strtolower(utf8_decode($inventario->producto))) }}</td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Modelo:</b></td>
