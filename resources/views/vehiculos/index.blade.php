@@ -32,7 +32,7 @@
 					<th>Modelo</th>
 					<th>Marca</th>
 					<th>Color</th>
-					<th class="text-center">Acciones</th>
+					<th class="text-center" width="15%">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>

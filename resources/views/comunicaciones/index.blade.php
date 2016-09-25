@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Comunicaciones</span> - Listado de comunicaciones</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('comunicaciones.index') }}">Comunicaciones</a></li>
 					<li class="active">Listado de comunicaciones</li>
 				</ul>
 			</div>
@@ -32,7 +31,7 @@
 					<th>Nº oficio</th>
 					<th>De</th>
                     <th>Para</th>
-					<th class="text-center">Acciones</th>
+					<th class="text-center" width="15%">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>

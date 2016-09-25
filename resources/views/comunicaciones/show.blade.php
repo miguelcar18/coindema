@@ -40,8 +40,10 @@
                     <td>{{ $comunicacion->numero_oficio }}</td>
                 </tr>
                 <tr>
+                    {{--*/ $separarFecha =  explode('-', $comunicacion->fecha) /*--}}
+                    {{--*/ $fechaNormal=  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
                     <td class="col-md-3 col-sm-4"><b>Fecha:</b></td>
-                    <td>{{ $comunicacion->fecha }}</td>
+                    <td>{{ $fechaNormal }}</td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>De:</b></td>

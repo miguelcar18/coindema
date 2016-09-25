@@ -6,7 +6,13 @@
 		</div>
 		<div class="col-md-4">
 			<label>Fecha <span class="text-danger">*</span></label>
-			{!! Form::text('fecha', null, ['id' => 'fecha', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			@if(isset($comunicacion->fecha))
+                {{--*/ $separarFecha =  explode('-', $comunicacion->fecha) /*--}}
+                {{--*/ $fechaNormal =  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
+                {!! Form::text('fecha', $fechaNormal, ['id' => 'fecha', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+            @else
+				{!! Form::text('fecha', null, ['id' => 'fecha', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			@endif
 			<label id="fecha-error" class="validation-error-label" for="fecha"></label>
 		</div>
 		<div class="col-md-4">
