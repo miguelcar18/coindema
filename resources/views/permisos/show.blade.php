@@ -60,16 +60,30 @@
                     <td>{{ $permiso->duracion }}</td>
                 </tr>
                 <tr>
+                    {{--*/ $separarFecha =  explode('-', $permiso->fecha_requerida) /*--}}
+                    {{--*/ $fechaNormal=  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
                     <td class="col-md-3 col-sm-4"><b>Fecha requerida:</b></td>
-                    <td>{{ $permiso->fecha_requerida }}</td>
+                    <td>{{ $fechaNormal }}</td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Suplente:</b></td>
-                    <td>{{ $permiso->suplente }}</td>
+                    <td>
+                        @if($permiso->suplente == 1)
+                            Si
+                        @elseif($permiso->suplente == 0)
+                            No
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Estado:</b></td>
-                    <td>{{ $permiso->aprobacion }}</td>
+                    <td>
+                        @if($permiso->aprobacion == 1)
+                            Aprobado
+                        @elseif($permiso->aprobacion == 0)
+                            Reprobado
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Acciones:</b></td>

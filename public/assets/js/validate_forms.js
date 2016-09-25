@@ -734,7 +734,7 @@ $(function() {
                     $('.btn-primary').attr('disabled', true);
                 },
                 success:function(respuesta){
-                    var alertMessage = mensajeExito('Comunicación '+accion+' satisfactoriamente.');
+                    var alertMessage = mensajeExito('Permiso '+accion+' satisfactoriamente.');
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)

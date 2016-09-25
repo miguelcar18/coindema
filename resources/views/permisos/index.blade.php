@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Permisos</span> - Listado de permisos</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('permisos.index') }}">Permisos</a></li>
 					<li class="active">Listado de permisos</li>
 				</ul>
 			</div>

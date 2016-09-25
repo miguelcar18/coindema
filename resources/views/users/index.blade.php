@@ -11,7 +11,6 @@
 				<h4><span class="text-semibold">Usuarios</span> - Listado de usuarios</h4>
 				<ul class="breadcrumb position-right">
 					<li><a href="{{ URL::route('dashboard') }}">Inicio</a></li>
-					<li><a href="{{ URL::route('users.index') }}">Usuarios</a></li>
 					<li class="active">Listado de usuarios</li>
 				</ul>
 			</div>

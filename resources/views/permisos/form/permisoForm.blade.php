@@ -38,7 +38,13 @@
 		</div>
 		<div class="col-md-4">
 			<label>Fecha requerida <span class="text-danger">*</span></label>
-			{!! Form::text('fecha_requerida', null, ['id' => 'fecha_requerida', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			@if(isset($permiso->fecha_requerida))
+                {{--*/ $separarFecha =  explode('-', $permiso->fecha_requerida) /*--}}
+                {{--*/ $fechaNormal =  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
+                {!! Form::text('fecha_requerida', $fechaNormal, ['id' => 'fecha_requerida', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+            @else
+				{!! Form::text('fecha_requerida', null, ['id' => 'fecha_requerida', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			@endif
 		</div>
 		<div class="col-md-4">
 			<label>Suplencia</label>
