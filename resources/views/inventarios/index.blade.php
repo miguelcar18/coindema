@@ -25,7 +25,7 @@
 		<div class="panel-heading">
 			<h5 class="panel-title">Inventario registrado</h5>
 		</div>
-		<table class="table datatable-basic table-bordered table-striped table-hover" id="tabla">
+		<table class="table datatable-basic table-striped table-hover" id="tabla">
 			<thead>
 				<tr>
 					<th>Producto</th>

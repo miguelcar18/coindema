@@ -75,7 +75,8 @@ class PermisoController extends Controller
                 'adscrito'          => $request['adscrito'],
                 'tipo_permiso'      => $request['tipo_permiso'],
                 'duracion'          => $request['duracion'],
-                'fecha_requerida'   => $request['fecha_requerida_submit'],
+                'desde'             => $request['desde_submit'],
+                'hasta'             => $request['hasta_submit'],
                 'suplente'          => $suplente,
                 'aprobacion'        => $aprobacion
             ];
@@ -135,7 +136,8 @@ class PermisoController extends Controller
                 'adscrito'          => $request['adscrito'],
                 'tipo_permiso'      => $request['tipo_permiso'],
                 'duracion'          => $request['duracion'],
-                'fecha_requerida'   => $request['fecha_requerida_submit'],
+                'desde'             => $request['desde_submit'],
+                'hasta'             => $request['hasta_submit'],
                 'suplente'          => $suplente,
                 'aprobacion'        => $aprobacion
             ];
@@ -175,4 +177,106 @@ class PermisoController extends Controller
             return Redirect::route('permisos.index');
         }
     }
+
+    public function reportePermiso($id) 
+    {
+        $permiso = Permiso::find($id);
+        $view =  \View::make('pdf.permiso', compact('permiso'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream();
+    }
+
+    public function consulta()
+    {
+        return view('permisos.consulta');
+    }
+
+    public function resultados(Request $request)
+    {
+        $tipo_permiso   = $request['tipo_permiso'];
+        $desde          = $request['desde'];
+        $desdeSql       = $request['desde_submit'];
+        $hasta          = $request['hasta'];
+        $hastaSql       = $request['hasta_submit'];
+        $suplente       = $request['suplente'];
+        $aprobacion     = $request['aprobacion'];
+
+        if($tipo_permiso == "" && $desde == "" && $hasta == "" && $suplente == "" && $aprobacion == "")
+        {
+            $permisos = Permiso::All();
+        }
+        else
+        {
+            $permisos = Permiso::with(array());
+
+            if($tipo_permiso != "")
+            {
+                $permisos = $permisos->where('tipo_permiso', $tipo_permiso);
+            }
+            if($suplente != "")
+            {
+                $permisos = $permisos->where('suplente', $suplente);
+            }
+            if($aprobacion != "")
+            {
+                $permisos = $permisos->where('aprobacion', $aprobacion);
+            }
+            if($request['desde'] != "")
+            {
+                $permisos = $permisos->where('desde', '>=',$request['desde_submit']);
+            }
+            if($request['hasta'] != "")
+            {
+                $permisos = $permisos->where('hasta', '<=', $request['hasta_submit']);
+            }
+            $permisos = $permisos->get();
+        }
+        return view('permisos.resultados', compact('permisos', 'tipo_permiso', 'desdeSql', 'hastaSql', 'suplente', 'aprobacion'));
+    }
+
+    public function pdfResultados(Request $request)
+    {
+        $tipo_permiso   = $request['tipo_permiso'];
+        $desde          = $request['desde'];
+        $hasta          = $request['hasta'];
+        $suplente       = $request['suplente'];
+        $aprobacion     = $request['aprobacion'];
+
+        if($tipo_permiso == "" && $desde == "" && $hasta == "" && $suplente == "" && $aprobacion == "")
+        {
+            $permisos = Permiso::All();
+        }
+        else
+        {
+            $permisos = Permiso::with(array());
+
+            if($tipo_permiso != "")
+            {
+                $permisos = $permisos->where('tipo_permiso', $tipo_permiso);
+            }
+            if($suplente != "")
+            {
+                $permisos = $permisos->where('suplente', $suplente);
+            }
+            if($aprobacion != "")
+            {
+                $permisos = $permisos->where('aprobacion', $aprobacion);
+            }
+            if($request['desde'] != "")
+            {
+                $permisos = $permisos->where('desde', '>=',$request['desde']);
+            }
+            if($request['hasta'] != "")
+            {
+                $permisos = $permisos->where('hasta', '<=', $request['hasta']);
+            }
+            $permisos = $permisos->get();
+        }
+        $view =  \View::make('pdf.resultadoPermiso', compact('permisos', 'tipo_permiso', 'desde', 'hasta', 'suplente', 'aprobacion'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream();
+    }
+
 }

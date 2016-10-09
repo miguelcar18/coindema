@@ -60,10 +60,16 @@
                     <td>{{ $permiso->duracion }}</td>
                 </tr>
                 <tr>
-                    {{--*/ $separarFecha =  explode('-', $permiso->fecha_requerida) /*--}}
-                    {{--*/ $fechaNormal=  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
-                    <td class="col-md-3 col-sm-4"><b>Fecha requerida:</b></td>
-                    <td>{{ $fechaNormal }}</td>
+                    {{--*/ $separarDesde =  explode('-', $permiso->desde) /*--}}
+                    {{--*/ $fechaDesde=  $separarDesde[2].'/'.$separarDesde[1].'/'.$separarDesde[0] /*--}}
+                    <td class="col-md-3 col-sm-4"><b>Fecha desde:</b></td>
+                    <td>{{ $fechaDesde }}</td>
+                </tr>
+                <tr>
+                    {{--*/ $separarHasta =  explode('-', $permiso->hasta) /*--}}
+                    {{--*/ $fechaHasta=  $separarHasta[2].'/'.$separarHasta[1].'/'.$separarHasta[0] /*--}}
+                    <td class="col-md-3 col-sm-4"><b>Fecha hasta:</b></td>
+                    <td>{{ $fechaHasta }}</td>
                 </tr>
                 <tr>
                     <td class="col-md-3 col-sm-4"><b>Suplente:</b></td>

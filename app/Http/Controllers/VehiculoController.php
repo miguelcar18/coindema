@@ -162,4 +162,151 @@ class VehiculoController extends Controller
             return Redirect::route('vehiculos.index');
         }
     }
+
+    public function consulta()
+    {
+        $departamentos = array('' => "Seleccione") + \DB::table('departamentos')->orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('vehiculos.consulta', compact('departamentos'));
+    }
+
+    public function resultados(Request $request)
+    {
+        $unidad         = $request['unidad']; 
+        $marca          = $request['marca']; 
+        $modelo         = $request['modelo']; 
+        $placa          = $request['placa']; 
+        $serial         = $request['serial']; 
+        $carroceria     = $request['carroceria']; 
+        $serial_motor   = $request['serial_motor']; 
+        $color          = $request['color']; 
+        $departamento   = $request['departamento']; 
+        $estado         = $request['estado'];
+
+        if($unidad == "" && $marca == "" && $modelo == "" && $placa == "" && $serial == "" && $carroceria == "" && $serial_motor == "" && $color == "" && $departamento == "" && $estado == "")
+        {
+            $vehiculos = Vehiculo::All();
+        }
+        else
+        {
+            $vehiculos = Vehiculo::with(array('nombreDepartamento'));
+            $nombreDep = "";
+
+            if($unidad != "")
+            {
+                $vehiculos = $vehiculos->where('unidad', $unidad);
+            }
+            if($marca != "")
+            {
+                $vehiculos = $vehiculos->where('marca', $marca);
+            }
+            if($modelo != "")
+            {
+                $vehiculos = $vehiculos->where('modelo', $modelo);
+            }
+            if($placa != "")
+            {
+                $vehiculos = $vehiculos->where('placa', $placa);
+            }
+            if($serial != "")
+            {
+                $vehiculos = $vehiculos->where('serial', $serial);
+            }
+            if($carroceria != "")
+            {
+                $vehiculos = $vehiculos->where('carroceria', $carroceria);
+            }
+            if($serial_motor != "")
+            {
+                $vehiculos = $vehiculos->where('serial_motor', $serial_motor);
+            }
+            if($color != "")
+            {
+                $vehiculos = $vehiculos->where('color', $color);
+            }
+            if($departamento != "")
+            {
+                $vehiculos = $vehiculos->where('departamento', $departamento);
+                $buscarNombreDep = Departamento::find($departamento);
+                $nombreDep = $buscarNombreDep->nombre;
+            }
+            if($estado != "")
+            {
+                $vehiculos = $vehiculos->where('estado', $estado);
+            }
+            $vehiculos = $vehiculos->get();
+        }
+        return view('vehiculos.resultados', compact('vehiculos', 'unidad', 'marca', 'modelo', 'placa', 'serial', 'carroceria', 'serial_motor', 'color', 'departamento', 'estado', 'nombreDep'));
+    }
+
+    public function pdfResultados(Request $request)
+    {
+        $unidad         = $request['unidad']; 
+        $marca          = $request['marca']; 
+        $modelo         = $request['modelo']; 
+        $placa          = $request['placa']; 
+        $serial         = $request['serial']; 
+        $carroceria     = $request['carroceria']; 
+        $serial_motor   = $request['serial_motor']; 
+        $color          = $request['color']; 
+        $departamento   = $request['departamento']; 
+        $estado         = $request['estado'];
+
+        if($unidad == "" && $marca == "" && $modelo == "" && $placa == "" && $serial == "" && $carroceria == "" && $serial_motor == "" && $color == "" && $departamento == "" && $estado == "")
+        {
+            $vehiculos = Vehiculo::All();
+        }
+        else
+        {
+            $vehiculos = Vehiculo::with(array("nombreDepartamento"));
+            $nombreDep = "";
+
+            if($unidad != "")
+            {
+                $vehiculos = $vehiculos->where('unidad', $unidad);
+            }
+            if($marca != "")
+            {
+                $vehiculos = $vehiculos->where('marca', $marca);
+            }
+            if($modelo != "")
+            {
+                $vehiculos = $vehiculos->where('modelo', $modelo);
+            }
+            if($placa != "")
+            {
+                $vehiculos = $vehiculos->where('placa', $placa);
+            }
+            if($serial != "")
+            {
+                $vehiculos = $vehiculos->where('serial', $serial);
+            }
+            if($carroceria != "")
+            {
+                $vehiculos = $vehiculos->where('carroceria', $carroceria);
+            }
+            if($serial_motor != "")
+            {
+                $vehiculos = $vehiculos->where('serial_motor', $serial_motor);
+            }
+            if($color != "")
+            {
+                $vehiculos = $vehiculos->where('color', $color);
+            }
+            if($departamento != "")
+            {
+                $vehiculos = $vehiculos->where('departamento', $departamento);
+                $buscarNombreDep = Departamento::find($departamento);
+                $nombreDep = $buscarNombreDep->nombre;
+            }
+            if($estado != "")
+            {
+                $vehiculos = $vehiculos->where('estado', $estado);
+            }
+            $vehiculos = $vehiculos->get();
+        }
+        $view =  \View::make('pdf.resultadoVehiculo', compact('vehiculos', 'unidad', 'marca', 'modelo', 'placa', 'serial', 'carroceria', 'serial_motor', 'color', 'departamento', 'estado', 'nombreDep'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream();
+    }
 }

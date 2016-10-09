@@ -30,7 +30,6 @@
 				<tr>
 					<th>Cédula</th>
 					<th>Nombre y apellido</th>
-                    <th>Cargo</th>
                     <th>Tipo de permiso</th>
                     <th>Estado</th>
 					<th class="text-center">Acciones</th>
@@ -41,7 +40,6 @@
 				<tr>
 					<td>{{ number_format($permiso->cedula, 0, '', '.') }}</td>
 					<td>{{ $permiso->nombre}}</td>
-                    <td>{{ $permiso->cargo }}</td>
                     <td>{{ $permiso->tipo_permiso }}</td>
                     <td>
                         @if($permiso->aprobacion == 1)
@@ -61,6 +59,10 @@
                         &nbsp;
                         <a href="#" data-id="{{ $permiso->id }}" class="tooltip-error borrar" data-rel="tooltip" title="Eliminar {{ $permiso->cedula }}" objeto="{{ $permiso->id }}"> 
                             <span class="btn btn-sm btn-danger"> <i class="icon-trash"></i> </span> 
+                        </a>
+                        &nbsp;
+                        <a href="{{ URL::route('reportePermiso', $permiso->id) }}" data-rel="tooltip" title="Orden de pago {{ $permiso->id }}" objeto="{{ $permiso->id }}" target="_blank"> 
+                            <span class="btn btn-sm bg-brown"> <i class="icon-file-pdf"></i> </span> 
                         </a>
 					</td>
 				</tr>

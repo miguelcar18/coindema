@@ -26,7 +26,7 @@
 		</div>
 		<div class="col-md-4">
 			<label>Tipo de permiso <span class="text-danger">*</span></label>
-			{!! Form::text('tipo_permiso', null, ['id' => 'tipo_permiso', 'class' => 'form-control', 'required' => true]) !!}
+			{!! Form::select('tipo_permiso', ['' => 'Seleccione', 'Remunerado' => 'Remunerado', 'No Remunerado' => 'No Remunerado'], null, ['id' => 'tipo_permiso', 'class' => 'form-control', 'required' => true]) !!}
 		</div>
 	</div>
 </div>
@@ -37,25 +37,35 @@
 			{!! Form::text('duracion', null, ['id' => 'duracion', 'class' => 'form-control', 'required' => true]) !!}
 		</div>
 		<div class="col-md-4">
-			<label>Fecha requerida <span class="text-danger">*</span></label>
-			@if(isset($permiso->fecha_requerida))
-                {{--*/ $separarFecha =  explode('-', $permiso->fecha_requerida) /*--}}
-                {{--*/ $fechaNormal =  $separarFecha[2].'/'.$separarFecha[1].'/'.$separarFecha[0] /*--}}
-                {!! Form::text('fecha_requerida', $fechaNormal, ['id' => 'fecha_requerida', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			<label>Desde <span class="text-danger">*</span></label>
+			@if(isset($permiso->desde))
+                {{--*/ $separarDesde =  explode('-', $permiso->desde) /*--}}
+                {{--*/ $fechaDesde =  $separarDesde[2].'/'.$separarDesde[1].'/'.$separarDesde[0] /*--}}
+                {!! Form::text('desde', $fechaDesde, ['id' => 'desde', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
             @else
-				{!! Form::text('fecha_requerida', null, ['id' => 'fecha_requerida', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+				{!! Form::text('desde', null, ['id' => 'desde', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
 			@endif
 		</div>
+		<div class="col-md-4">
+			<label>Hasta <span class="text-danger">*</span></label>
+			@if(isset($permiso->hasta))
+                {{--*/ $separarHasta =  explode('-', $permiso->hasta) /*--}}
+                {{--*/ $fechaHasta =  $separarHasta[2].'/'.$separarHasta[1].'/'.$separarHasta[0] /*--}}
+                {!! Form::text('hasta', $fechaHasta, ['id' => 'hasta', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+            @else
+				{!! Form::text('hasta', null, ['id' => 'hasta', 'class' => 'form-control pickadate-comunicacion', 'required' => true]) !!}
+			@endif
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<div class="row">
 		<div class="col-md-4">
 			<label>Suplencia</label>
 			<div class="checkbox-switch">
 				{!! Form::checkbox('suplente', null, null, ['id' => 'suplente', 'class' => 'switch', 'data-on-color' => 'success', 'data-off-color' => 'danger', 'data-on-text' => 'Si', 'data-off-text' => 'No']) !!}
 			</div>
 		</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
 		<div class="col-md-4">
 			<label>Estado</label>
 			<div class="checkbox-switch">

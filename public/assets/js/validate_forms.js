@@ -419,7 +419,8 @@ $(function() {
             },
             cantidad: {
                 required: true,
-                number: true
+                number: true,
+                min: 1
             },
             serial: {
                 required: true
@@ -440,7 +441,8 @@ $(function() {
             },
             cantidad: {
                 required: "Ingrese una cantidad", 
-                number: "Ingrese solo números"
+                number: "Ingrese solo números",
+                min: "Ingrese una cantidad igual o superior a 1"
             },
             serial: {
                 required: "Ingrese un serial"
@@ -675,7 +677,10 @@ $(function() {
             duracion: {
                 required: true
             },
-            fecha_requerida: {
+            desde: {
+                required: true
+            },
+            hasta: {
                 required: true
             }
         },
@@ -697,13 +702,16 @@ $(function() {
                 required: "Ingrese en donde está adscrito"
             },
             tipo_permiso: {
-                required: "Ingrese el tipo de permiso"
+                required: "Seleccione el tipo de permiso"
             },
             duracion: {
                 required: "Ingrese la duración del permiso"
             },
-            fecha_requerida: {
+            desde: {
                 required: "Seleccione la fecha de inicio del permiso"
+            },
+            hasta: {
+                required: "Seleccione la fecha de fin del permiso"
             }
         },
         submitHandler: function () {

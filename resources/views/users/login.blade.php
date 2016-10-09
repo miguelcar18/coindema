@@ -48,9 +48,11 @@
 								<div class="form-group">
 									{!! Form::button('Iniciar <i class="icon-circle-right2 position-right"></i>', ['class'=> 'btn btn-primary btn-block', 'id' => 'loginButton', 'type' => 'submit']) !!}
 								</div>
+								{{--
 								<div class="text-center">
 									<a href="password/email">¿Olvidó su contraseña?</a>
 								</div>
+								--}}
 							</div>
 						{!! Form::close()!!}
 						<!-- /simple login form -->

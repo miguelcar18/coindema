@@ -58,8 +58,20 @@
 									<div class="panel-body">
 										El Sistema para el control de inventario del Departamento de Mantenimiento perteneciente a la Universidad de Oriente Núcleo Monagas (COINDEMA) es desarrollado con la finalidad de llevar un control adecuado del inventario de maquinarias, materiales, equipos, herramientas y vehículos. También permite el registro y manejo de las comunicaciones realizadas y los permisos tramitados.
 									</div>
+									@if(isset($cantidadUsuario) and isset($cantidadDepartamento) and isset($cantidadPermiso) and isset($cantidadComunicacion) and isset($cantidadVehiculo) and isset($cantidadEquipo) and isset($cantidadHerramienta) and isset($cantidadMaquinaria) and isset($cantidadMaterial))
 									<div class="container-fluid">
 										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-brown-800 text-brown-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-people"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Usuarios</div>
+														<div class="text-muted">{{ $cantidadUsuario }}</div>
+													</li>
+												</ul>
+											</div>
 											<div class="col-lg-4 col-md-4 col-sm-4">
 												<ul class="list-inline">
 													<li>
@@ -67,29 +79,18 @@
 													</li>
 													<li class="text-left">
 														<div class="text-semibold">Total Departamentos</div>
-														<div class="text-muted">10</div>
+														<div class="text-muted">{{ $cantidadDepartamento }}</div>
 													</li>
 												</ul>
 											</div>
 											<div class="col-lg-4 col-md-4 col-sm-4">
 												<ul class="list-inline">
 													<li>
-														<a class="btn border-warning-400 text-warning-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-package"></i></a>
+														<a class="btn border-purple-800 text-purple-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-bookmark4"></i></a>
 													</li>
 													<li class="text-left">
-														<div class="text-semibold">Total Inventario</div>
-														<div class="text-muted">10</div>
-													</li>
-												</ul>
-											</div>
-											<div class="col-lg-4 col-md-4 col-sm-4">
-												<ul class="list-inline">
-													<li>
-														<a class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-car"></i></a>
-													</li>
-													<li class="text-left">
-														<div class="text-semibold">Total Vehículos</div>
-														<div class="text-muted">10</div>
+														<div class="text-semibold">Total Permisos</div>
+														<div class="text-muted">{{ $cantidadPermiso }}</div>
 													</li>
 												</ul>
 											</div>
@@ -102,34 +103,70 @@
 													</li>
 													<li class="text-left">
 														<div class="text-semibold">Total Comunicaciones</div>
-														<div class="text-muted">10</div>
+														<div class="text-muted">{{ $cantidadComunicacion }}</div>
 													</li>
 												</ul>
 											</div>
 											<div class="col-lg-4 col-md-4 col-sm-4">
 												<ul class="list-inline">
 													<li>
-														<a class="btn border-purple-800 text-purple-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-bookmark4"></i></a>
+														<a class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-car"></i></a>
 													</li>
 													<li class="text-left">
-														<div class="text-semibold">Total Permisos</div>
-														<div class="text-muted">10</div>
+														<div class="text-semibold">Total Vehículos</div>
+														<div class="text-muted">{{ $cantidadVehiculo }}</div>
 													</li>
 												</ul>
 											</div>
 											<div class="col-lg-4 col-md-4 col-sm-4">
 												<ul class="list-inline">
 													<li>
-														<a class="btn border-brown-800 text-brown-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-people"></i></a>
+														<a class="btn border-warning-400 text-warning-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-box"></i></a>
 													</li>
 													<li class="text-left">
-														<div class="text-semibold">Total Usuarios</div>
-														<div class="text-muted">10</div>
+														<div class="text-semibold">Total Equipos</div>
+														<div class="text-muted">{{ $cantidadEquipo }}</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-green-800 text-green-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-wrench"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Herramientas</div>
+														<div class="text-muted">{{ $cantidadHerramienta }}</div>
+													</li>
+												</ul>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-grey-800 text-grey-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-truck"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Maquinarias</div>
+														<div class="text-muted">{{ $cantidadMaquinaria }}</div>
+													</li>
+												</ul>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<ul class="list-inline">
+													<li>
+														<a class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-package"></i></a>
+													</li>
+													<li class="text-left">
+														<div class="text-semibold">Total Materiales</div>
+														<div class="text-muted">{{ $cantidadMaterial }}</div>
 													</li>
 												</ul>
 											</div>
 										</div>
 									</div>
+									@endif
 								</div>
 							</div>
 						</div>

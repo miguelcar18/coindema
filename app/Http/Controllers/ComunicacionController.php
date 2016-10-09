@@ -151,4 +151,104 @@ class ComunicacionController extends Controller
             return Redirect::route('comunicaciones.index');
         }
     }
+
+    public function consulta()
+    {
+        return view('comunicaciones.consulta');
+    }
+
+    public function resultados(Request $request)
+    {
+        $orden          = $request['orden']; 
+        $fecha          = $request['fecha_submit']; 
+        $numero_oficio  = $request['numero_oficio'];
+        $de             = $request['de'];
+        $para           = $request['para'];
+        $asunto         = $request['asunto'];
+
+        if($orden == "" && $fecha == "" && $numero_oficio == "" && $de == "" && $para == "" && $asunto == "")
+        {
+            $comunicaciones = Comunicacion::All();
+        }
+        else
+        {
+            $comunicaciones = Comunicacion::with(array());
+
+            if($orden != "")
+            {
+                $comunicaciones = $comunicaciones->where('orden', $orden);
+            }
+            if($fecha != "")
+            {
+                $comunicaciones = $comunicaciones->where('fecha', $fecha);
+            }
+            if($numero_oficio != "")
+            {
+                $comunicaciones = $comunicaciones->where('numero_oficio', $numero_oficio);
+            }
+            if($de != "")
+            {
+                $comunicaciones = $comunicaciones->where('de', $de);
+            }
+            if($para != "")
+            {
+                $comunicaciones = $comunicaciones->where('para', $para);
+            }
+            if($asunto != "")
+            {
+                $comunicaciones = $comunicaciones->where('asunto', $asunto);
+            }
+            $comunicaciones = $comunicaciones->get();
+        }
+        return view('comunicaciones.resultados', compact('comunicaciones', 'orden', 'fecha', 'numero_oficio', 'de', 'para', 'asunto'));
+    }
+
+    public function pdfResultados(Request $request)
+    {
+        $orden          = $request['orden']; 
+        $fecha          = $request['fecha_submit']; 
+        $numero_oficio  = $request['numero_oficio'];
+        $de             = $request['de'];
+        $para           = $request['para'];
+        $asunto         = $request['asunto'];
+
+        if($orden == "" && $fecha == "" && $numero_oficio == "" && $de == "" && $para == "" && $asunto == "")
+        {
+            $comunicaciones = Comunicacion::All();
+        }
+        else
+        {
+            $comunicaciones = Comunicacion::with(array());
+
+            if($orden != "")
+            {
+                $comunicaciones = $comunicaciones->where('orden', $orden);
+            }
+            if($fecha != "")
+            {
+                $comunicaciones = $comunicaciones->where('fecha', $fecha);
+            }
+            if($numero_oficio != "")
+            {
+                $comunicaciones = $comunicaciones->where('numero_oficio', $numero_oficio);
+            }
+            if($de != "")
+            {
+                $comunicaciones = $comunicaciones->where('de', $de);
+            }
+            if($para != "")
+            {
+                $comunicaciones = $comunicaciones->where('para', $para);
+            }
+            if($asunto != "")
+            {
+                $comunicaciones = $comunicaciones->where('asunto', $asunto);
+            }
+            $comunicaciones = $comunicaciones->get();
+        }
+        $view =  \View::make('pdf.resultadoComunicacion', compact('comunicaciones', 'orden', 'fecha', 'numero_oficio', 'de', 'para', 'asunto'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream();
+    }
 }

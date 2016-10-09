@@ -29,12 +29,27 @@ Route::resource('departamentos', 'DepartamentoController');
 
 /***********************Vehiculos**************************/
 Route::resource('vehiculos', 'VehiculoController');
+Route::get('vehiculos/consultar/formulario', ['as' => 'vehiculos.consulta', 'uses' => 'VehiculoController@consulta']);
+Route::post('vehiculos/consultar/resultados', ['as' => 'vehiculos.resultados', 'uses' => 'VehiculoController@resultados']);
+Route::post('vehiculos/pdf/resultados', ['as' => 'vehiculos.pdfResultados', 'uses' => 'VehiculoController@pdfResultados']);
 
 /*********************Inventarios**************************/
 Route::resource('inventarios', 'InventarioController');
+Route::get('inventarios/consultar/formulario', ['as' => 'inventarios.consulta', 'uses' => 'InventarioController@consulta']);
+Route::post('inventarios/consultar/resultados', ['as' => 'inventarios.resultados', 'uses' => 'InventarioController@resultados']);
+Route::post('inventarios/pdf/resultados', ['as' => 'inventarios.pdfResultados', 'uses' => 'InventarioController@pdfResultados']);
 
 /*********************Comunicaciones***********************/
 Route::resource('comunicaciones', 'ComunicacionController');
+Route::get('comunicaciones/consultar/formulario', ['as' => 'comunicaciones.consulta', 'uses' => 'ComunicacionController@consulta']);
+Route::post('comunicaciones/consultar/resultados', ['as' => 'comunicaciones.resultados', 'uses' => 'ComunicacionController@resultados']);
+Route::post('comunicaciones/pdf/resultados', ['as' => 'comunicaciones.pdfResultados', 'uses' => 'ComunicacionController@pdfResultados']);
 
 /*********************Permisos*****************************/
 Route::resource('permisos', 'PermisoController');
+Route::get('permisos/consultar/formulario', ['as' => 'permisos.consulta', 'uses' => 'PermisoController@consulta']);
+Route::post('permisos/consultar/resultados', ['as' => 'permisos.resultados', 'uses' => 'PermisoController@resultados']);
+Route::post('permisos/pdf/resultados', ['as' => 'permisos.pdfResultados', 'uses' => 'PermisoController@pdfResultados']);
+
+/*********************Reportes*****************************/
+Route::get('reporte/permiso/{id}', ['as' => 'reportePermiso', 'uses' => 'PermisoController@reportePermiso']);

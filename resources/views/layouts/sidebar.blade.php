@@ -55,6 +55,9 @@
 							<li @if(Route::getCurrentRoute()->getName() == 'inventarios.create') class="active" @endif>
 								<a href="{{ URL::route('inventarios.create') }}">Agregar registro</a>
 							</li>
+							<li @if(Route::getCurrentRoute()->getName() == 'inventarios.consulta' or Route::getCurrentRoute()->getName() == 'inventarios.resultados') class="active" @endif>
+								<a href="{{ URL::route('inventarios.consulta') }}">Consulta</a>
+							</li>
 						</ul>
 					</li>
 					<li>
@@ -65,6 +68,9 @@
 							</li>
 							<li @if(Route::getCurrentRoute()->getName() == 'vehiculos.create') class="active" @endif>
 								<a href="{{ URL::route('vehiculos.create') }}">Agregar vehiculo</a>
+							</li>
+							<li @if(Route::getCurrentRoute()->getName() == 'vehiculos.consulta' or Route::getCurrentRoute()->getName() == 'vehiculos.resultados') class="active" @endif>
+								<a href="{{ URL::route('vehiculos.consulta') }}">Consulta</a>
 							</li>
 						</ul>
 					</li>
@@ -77,6 +83,9 @@
 							<li @if(Route::getCurrentRoute()->getName() == 'comunicaciones.create') class="active" @endif>
 								<a href="{{ URL::route('comunicaciones.create') }}">Agregar comunicación</a>
 							</li>
+							<li @if(Route::getCurrentRoute()->getName() == 'comunicaciones.consulta' or Route::getCurrentRoute()->getName() == 'comunicaciones.resultados') class="active" @endif>
+								<a href="{{ URL::route('comunicaciones.consulta') }}">Consulta</a>
+							</li>
 						</ul>
 					</li>
 					<li>
@@ -87,6 +96,9 @@
 							</li>
 							<li @if(Route::getCurrentRoute()->getName() == 'permisos.create') class="active" @endif>
 								<a href="{{ URL::route('permisos.create') }}">Agregar permiso</a>
+							</li>
+							<li @if(Route::getCurrentRoute()->getName() == 'permisos.consulta' or Route::getCurrentRoute()->getName() == 'permisos.resultados') class="active" @endif>
+								<a href="{{ URL::route('permisos.consulta') }}">Consulta</a>
 							</li>
 						</ul>
 					</li>

@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<label class="control-label">Cantidad <span class="text-danger">*</span></label>
-			{!! Form::input('number', 'cantidad', null, ['id' => 'cantidad', 'class' => 'form-control', 'placeholder' => '0.00', 'step' => 'any']) !!}
+			{!! Form::input('number', 'cantidad', null, ['id' => 'cantidad', 'class' => 'form-control', 'placeholder' => '0.00', 'step' => 'any', 'min' => '1']) !!}
 		</div>
 		<div class="col-md-4">
 			<label class="control-label">Serial <span class="text-danger">*</span></label>

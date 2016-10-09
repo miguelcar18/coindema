@@ -18,5 +18,5 @@ class Permiso extends Model
      *
      * @var array
      */
-    protected $fillable = ['cedula', 'nombre', 'cargo', 'tipo_personal', 'adscrito', 'tipo_permiso', 'duracion', 'fecha_requerida', 'suplente', 'aprobacion'];
+    protected $fillable = ['cedula', 'nombre', 'cargo', 'tipo_personal', 'adscrito', 'tipo_permiso', 'duracion', 'desde', 'hasta', 'suplente', 'aprobacion'];
 }

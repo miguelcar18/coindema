@@ -156,4 +156,111 @@ class InventarioController extends Controller
             return Redirect::route('inventarios.index');
         }
     }
+
+    public function consulta()
+    {
+        $departamentos = array('' => "Seleccione") + \DB::table('departamentos')->orderBy('nombre', 'asc')->lists('nombre','id');
+        return view('inventarios.consulta', compact('departamentos'));
+    }
+
+    public function resultados(Request $request)
+    {
+        $producto       = $request['producto']; 
+        $modelo         = $request['modelo']; 
+        $marca          = $request['marca']; 
+        $cantidad       = $request['cantidad']; 
+        $serial         = $request['serial']; 
+        $departamento   = $request['departamento'];
+
+        if($producto == "" && $modelo == "" && $marca == "" && $cantidad == "" && $serial == "" && $departamento == "")
+        {
+            $inventarios = Inventario::All();
+        }
+        else
+        {
+            $inventarios = Inventario::with(array('nombreDepartamento'));
+            $nombreDep = "";
+
+            if($producto != "")
+            {
+                $inventarios = $inventarios->where('producto', $producto);
+            }
+            if($modelo != "")
+            {
+                $inventarios = $inventarios->where('modelo', $modelo);
+            }
+            if($marca != "")
+            {
+                $inventarios = $inventarios->where('marca', $marca);
+            }
+            if($cantidad != "")
+            {
+                $inventarios = $inventarios->where('cantidad', $cantidad);
+            }
+            if($serial != "")
+            {
+                $inventarios = $inventarios->where('serial', $serial);
+            }
+            if($departamento != "")
+            {
+                $inventarios = $inventarios->where('departamento', $departamento);
+                $buscarNombreDep = Departamento::find($departamento);
+                $nombreDep = $buscarNombreDep->nombre;
+            }
+            $inventarios = $inventarios->get();
+        }
+        return view('inventarios.resultados', compact('inventarios', 'producto', 'modelo', 'marca', 'cantidad', 'serial', 'departamento', 'nombreDep'));
+    }
+
+    public function pdfResultados(Request $request)
+    {
+        $producto       = $request['producto']; 
+        $modelo         = $request['modelo']; 
+        $marca          = $request['marca']; 
+        $cantidad       = $request['cantidad']; 
+        $serial         = $request['serial']; 
+        $departamento   = $request['departamento'];
+
+        if($producto == "" && $modelo == "" && $marca == "" && $cantidad == "" && $serial == "" && $departamento == "")
+        {
+            $inventarios = Inventario::All();
+        }
+        else
+        {
+            $inventarios = Inventario::with(array('nombreDepartamento'));
+            $nombreDep = "";
+
+            if($producto != "")
+            {
+                $inventarios = $inventarios->where('producto', $producto);
+            }
+            if($modelo != "")
+            {
+                $inventarios = $inventarios->where('modelo', $modelo);
+            }
+            if($marca != "")
+            {
+                $inventarios = $inventarios->where('marca', $marca);
+            }
+            if($cantidad != "")
+            {
+                $inventarios = $inventarios->where('cantidad', $cantidad);
+            }
+            if($serial != "")
+            {
+                $inventarios = $inventarios->where('serial', $serial);
+            }
+            if($departamento != "")
+            {
+                $inventarios = $inventarios->where('departamento', $departamento);
+                $buscarNombreDep = Departamento::find($departamento);
+                $nombreDep = $buscarNombreDep->nombre;
+            }
+            $inventarios = $inventarios->get();
+        }
+        $view =  \View::make('pdf.resultadoInventario', compact('inventarios', 'producto', 'modelo', 'marca', 'cantidad', 'serial', 'departamento', 'nombreDep'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream();
+    }
 }

@@ -21,7 +21,8 @@ class CreatePermisosTable extends Migration
             $table->string('adscrito');
             $table->string('tipo_permiso');
             $table->string('duracion');
-            $table->date('fecha_requerida');
+            $table->date('desde');
+            $table->date('hasta');
             $table->string('suplente');
             $table->string('aprobacion');
             $table->timestamps();
