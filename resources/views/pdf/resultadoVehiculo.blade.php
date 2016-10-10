@@ -7,7 +7,7 @@
     </head>
     <body marginwidth="0" marginheight="0">
         <div id="header">
-            <table cellpadding="0" cellspacing="0" border="0" class="header" width="100%"s>
+            <table cellpadding="0" cellspacing="0" border="0" class="header" width="100%">
                 <tbody>
                     <tr>
                         <td style="width:20%">
@@ -26,7 +26,7 @@
                     <tr>
                         <td style="text-align: center; font-size:18px; padding: 10px 0 0 0;" colspan="2">
                             @if($unidad == "" && $marca == "" && $modelo == "" && $placa == "" && $serial == "" && $carroceria == "" && $serial_motor == "" && $color == "" && $departamento == "" && $estado == "")
-                                <b>LISTADO TOTAL DE VEHÍCULOS</b>
+                                <b>LISTADO TOTAL DE VEHÍCULOS</b><br><br>
                             @else
                             <b>LISTADO DE VEHÍCULOS <br>(
                                 @if($unidad != "")
@@ -58,43 +58,42 @@
                     </tr>
                 </tbody>
             </table>
+            <table cellpadding="2" cellspacing="0" border="0" width="100%">
+                <thead>
+                    <tr style="background-color: #6699ff; color: white; border: 1px solid black">
+                        <th style="width: 16%;">Unidad</th>
+                        <th style="width: 16%;">Marca</th>
+                        <th style="width: 16%;">Modelo</th>
+                        <th style="width: 16%;">Placa</th>
+                        <th style="width: 16%;">Color</th>
+                        <th style="width: 20%;">Departamento</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <div id="footer">
             <div class="page-number"></div>
         </div>
         <table cellpadding="2" cellspacing="0" border="0" width="100%">
-            <thead>
-                <tr>
-                    <th align="left">Unidad</th>
-                    <th align="left">Marca</th>
-                    <th align="left">Modelo</th>
-                    <th align="left">Placa</th>
-                    <th align="left">Color</th>
-                    <th align="left">Departamento</th>
-                </tr>
-            </thead>
             <tbody>
-                <tr>
-                    <td colspan="6"><br></td>
-                </tr>
                 @foreach($vehiculos as $vehiculo)
                 <tr>
-                    <td>
+                    <td style="width: 16%;">
                         {{ $vehiculo->unidad }}
                     </td>
-                    <td>
+                    <td style="width: 16%;">
                         {{ $vehiculo->marca }}
                     </td>
-                    <td>
+                    <td style="width: 16%;">
                         {{ $vehiculo->modelo }}
                     </td>
-                    <td>
+                    <td style="width: 16%;">
                         {{ $vehiculo->placa }}
                     </td>
-                    <td>
+                    <td style="width: 16%;">
                         {{ $vehiculo->color }}
                     </td>
-                    <td>
+                    <td style="width: 20%;">
                         {{ $vehiculo->nombreDepartamento->nombre }}
                     </td>
                 </tr>

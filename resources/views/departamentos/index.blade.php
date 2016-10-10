@@ -94,7 +94,7 @@
         if ($('.tooltip-error').length)
         {
            $('.tooltip-error').click(function () {
-                var message = "¿Está realmente seguro(a) de eliminar este departamento?";
+                var message = "¿Está realmente seguro(a) de eliminar este departamento? Todos los registros que esten asociados a este departamento también serán eliminados";
                 var id = $(this).data('id');
                 var form = $('#form-delete');
                 var action = form.attr('action').replace('USER_ID', id);

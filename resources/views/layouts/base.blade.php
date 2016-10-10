@@ -68,7 +68,7 @@
 													</li>
 													<li class="text-left">
 														<div class="text-semibold">Total Usuarios</div>
-														<div class="text-muted">{{ $cantidadUsuario }}</div>
+														<div class="text-muted">{{ $cantidadUsuario - 1 }}</div>
 													</li>
 												</ul>
 											</div>

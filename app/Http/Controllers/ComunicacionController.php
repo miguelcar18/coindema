@@ -180,23 +180,23 @@ class ComunicacionController extends Controller
             }
             if($fecha != "")
             {
-                $comunicaciones = $comunicaciones->where('fecha', $fecha);
+                $comunicaciones = $comunicaciones->where('fecha', 'like', '%'. $fecha.'%');
             }
             if($numero_oficio != "")
             {
-                $comunicaciones = $comunicaciones->where('numero_oficio', $numero_oficio);
+                $comunicaciones = $comunicaciones->where('numero_oficio', 'like', '%'. $numero_oficio.'%');
             }
             if($de != "")
             {
-                $comunicaciones = $comunicaciones->where('de', $de);
+                $comunicaciones = $comunicaciones->where('de', 'like', '%'. $de.'%');
             }
             if($para != "")
             {
-                $comunicaciones = $comunicaciones->where('para', $para);
+                $comunicaciones = $comunicaciones->where('para', 'like', '%'. $para.'%');
             }
             if($asunto != "")
             {
-                $comunicaciones = $comunicaciones->where('asunto', $asunto);
+                $comunicaciones = $comunicaciones->where('asunto', 'like', '%'. $asunto.'%');
             }
             $comunicaciones = $comunicaciones->get();
         }
@@ -226,23 +226,23 @@ class ComunicacionController extends Controller
             }
             if($fecha != "")
             {
-                $comunicaciones = $comunicaciones->where('fecha', $fecha);
+                $comunicaciones = $comunicaciones->where('fecha', 'like', '%'. $fecha.'%');
             }
             if($numero_oficio != "")
             {
-                $comunicaciones = $comunicaciones->where('numero_oficio', $numero_oficio);
+                $comunicaciones = $comunicaciones->where('numero_oficio', 'like', '%'. $numero_oficio.'%');
             }
             if($de != "")
             {
-                $comunicaciones = $comunicaciones->where('de', $de);
+                $comunicaciones = $comunicaciones->where('de', 'like', '%'. $de.'%');
             }
             if($para != "")
             {
-                $comunicaciones = $comunicaciones->where('para', $para);
+                $comunicaciones = $comunicaciones->where('para', 'like', '%'. $para.'%');
             }
             if($asunto != "")
             {
-                $comunicaciones = $comunicaciones->where('asunto', $asunto);
+                $comunicaciones = $comunicaciones->where('asunto', 'like', '%'. $asunto.'%');
             }
             $comunicaciones = $comunicaciones->get();
         }

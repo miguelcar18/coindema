@@ -112,7 +112,7 @@ $(function() {
                     else
                     {
                         $('div#respuesta').empty();
-                        window.location = 'http://'+window.location.host+"/coindema/public/";
+                        window.location = 'http://'+window.location.host+"/coindema/";
                     }
                 }
             })            

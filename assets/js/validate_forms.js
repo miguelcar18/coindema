@@ -191,6 +191,7 @@ $(function() {
                         $('#respuesta').html(alertMessage);
                         $('div#respuesta').fadeIn();
                         $('#addUserForm').reset();
+                        $('.validation-error-label').remove();
                         $("#file").val("");
                         $('.btn-primary').attr('disabled', false);
                         $('div#respuesta').fadeOut(10000);
@@ -264,6 +265,7 @@ $(function() {
                         $('#respuesta').html(alertMessage);
                         $('div#respuesta').fadeIn();
                         $('#passwordForm').reset();
+                        $('.validation-error-label').remove();
                         $('.btn-info').attr('disabled', false);
                         $('div#respuesta').fadeOut(10000);
                     }
@@ -388,7 +390,10 @@ $(function() {
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
+                    {
                         $('#vehiculoForm').reset();
+                        $('.validation-error-label').remove();
+                    }
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }
@@ -483,7 +488,10 @@ $(function() {
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
+                    {
                         $('#inventarioForm').reset();
+                        $('.validation-error-label').remove();
+                    }
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }
@@ -544,7 +552,10 @@ $(function() {
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
+                    {
                         $('#departamentoForm').reset();
+                        $('.validation-error-label').remove();
+                    }
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }
@@ -635,7 +646,10 @@ $(function() {
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
+                    {
                         $('#comunicacionForm').reset();
+                        $('.validation-error-label').remove();
+                    }
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }
@@ -746,7 +760,10 @@ $(function() {
                     $('#respuesta').html(alertMessage);
                     $('div#respuesta').fadeIn();
                     if($("button#submit").attr('data') == 1)
+                    {
                         $('#permisoForm').reset();
+                        $('.validation-error-label').remove();
+                    }
                     $('.btn-primary').attr('disabled', false);
                     $('div#respuesta').fadeOut(10000);
                 }

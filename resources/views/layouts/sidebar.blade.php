@@ -102,6 +102,7 @@
 							</li>
 						</ul>
 					</li>
+					@if(Auth::user()->rol == 1)
 					<li>
 						<a href="#"><i class="icon-users4"></i> <span>Usuarios</span></a>
 						<ul>
@@ -113,6 +114,7 @@
 							</li>
 						</ul>
 					</li>
+					@endif
 				</ul>
 			</div>
 		</div>

@@ -193,35 +193,35 @@ class VehiculoController extends Controller
 
             if($unidad != "")
             {
-                $vehiculos = $vehiculos->where('unidad', $unidad);
+                $vehiculos = $vehiculos->where('unidad', 'like', '%'. $unidad.'%');
             }
             if($marca != "")
             {
-                $vehiculos = $vehiculos->where('marca', $marca);
+                $vehiculos = $vehiculos->where('marca', 'like', '%'. $marca.'%');
             }
             if($modelo != "")
             {
-                $vehiculos = $vehiculos->where('modelo', $modelo);
+                $vehiculos = $vehiculos->where('modelo', 'like', '%'. $modelo.'%');
             }
             if($placa != "")
             {
-                $vehiculos = $vehiculos->where('placa', $placa);
+                $vehiculos = $vehiculos->where('placa', 'like', '%'. $placa.'%');
             }
             if($serial != "")
             {
-                $vehiculos = $vehiculos->where('serial', $serial);
+                $vehiculos = $vehiculos->where('serial', 'like', '%'. $serial.'%');
             }
             if($carroceria != "")
             {
-                $vehiculos = $vehiculos->where('carroceria', $carroceria);
+                $vehiculos = $vehiculos->where('carroceria', 'like', '%'. $carroceria.'%');
             }
             if($serial_motor != "")
             {
-                $vehiculos = $vehiculos->where('serial_motor', $serial_motor);
+                $vehiculos = $vehiculos->where('serial_motor', 'like', '%'. $serial_motor.'%');
             }
             if($color != "")
             {
-                $vehiculos = $vehiculos->where('color', $color);
+                $vehiculos = $vehiculos->where('color', 'like', '%'. $color.'%');
             }
             if($departamento != "")
             {
@@ -231,7 +231,7 @@ class VehiculoController extends Controller
             }
             if($estado != "")
             {
-                $vehiculos = $vehiculos->where('estado', $estado);
+                $vehiculos = $vehiculos->where('estado', 'like', '%'. $estado.'%');
             }
             $vehiculos = $vehiculos->get();
         }
@@ -262,35 +262,35 @@ class VehiculoController extends Controller
 
             if($unidad != "")
             {
-                $vehiculos = $vehiculos->where('unidad', $unidad);
+                $vehiculos = $vehiculos->where('unidad', 'like', '%'. $unidad.'%');
             }
             if($marca != "")
             {
-                $vehiculos = $vehiculos->where('marca', $marca);
+                $vehiculos = $vehiculos->where('marca', 'like', '%'. $marca.'%');
             }
             if($modelo != "")
             {
-                $vehiculos = $vehiculos->where('modelo', $modelo);
+                $vehiculos = $vehiculos->where('modelo', 'like', '%'. $modelo.'%');
             }
             if($placa != "")
             {
-                $vehiculos = $vehiculos->where('placa', $placa);
+                $vehiculos = $vehiculos->where('placa', 'like', '%'. $placa.'%');
             }
             if($serial != "")
             {
-                $vehiculos = $vehiculos->where('serial', $serial);
+                $vehiculos = $vehiculos->where('serial', 'like', '%'. $serial.'%');
             }
             if($carroceria != "")
             {
-                $vehiculos = $vehiculos->where('carroceria', $carroceria);
+                $vehiculos = $vehiculos->where('carroceria', 'like', '%'. $carroceria.'%');
             }
             if($serial_motor != "")
             {
-                $vehiculos = $vehiculos->where('serial_motor', $serial_motor);
+                $vehiculos = $vehiculos->where('serial_motor', 'like', '%'. $serial_motor.'%');
             }
             if($color != "")
             {
-                $vehiculos = $vehiculos->where('color', $color);
+                $vehiculos = $vehiculos->where('color', 'like', '%'. $color.'%');
             }
             if($departamento != "")
             {
@@ -300,7 +300,7 @@ class VehiculoController extends Controller
             }
             if($estado != "")
             {
-                $vehiculos = $vehiculos->where('estado', $estado);
+                $vehiculos = $vehiculos->where('estado', 'like', '%'. $estado.'%');
             }
             $vehiculos = $vehiculos->get();
         }

@@ -26,7 +26,7 @@
                     <tr>
                         <td style="text-align: center; font-size:18px; padding: 10px 0 0 0;" colspan="2">
                             @if($tipo_permiso == "" && $desde == "" && $hasta == "" && $suplente == "" && $aprobacion == "")
-                            <b>LISTADO TOTAL DE PERMISOS</b>
+                            <b>LISTADO TOTAL DE PERMISOS</b><br><br>
                             @else
                             <b>LISTADO DE PERMISOS <br>(
                                 @if($tipo_permiso != "")
@@ -67,25 +67,24 @@
                     </tr>
                 </tbody>
             </table>
+            <table cellpadding="2" cellspacing="0" border="0" width="100%">
+                <thead>
+                    <tr style="background-color: #6699ff; color: white; border: 1px solid black">
+                        <th style="text-align: left; width: 12%">Cédula</th>
+                        <th style="text-align: left; width: 34%">Nombre y apellido</th>
+                        <th style="text-align: left; width: 18%">Tipo de permiso</th>
+                        <th style="width: 12%">Desde</th>
+                        <th style="width: 12%">Hasta</th>
+                        <th style="width: 12%">Estado</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <div id="footer">
             <div class="page-number"></div>
         </div>
         <table cellpadding="2" cellspacing="0" border="0" width="100%">
-            <thead>
-                <tr>
-                    <th style="text-align: left">Cédula</th>
-                    <th style="text-align: left">Nombre y apellido</th>
-                    <th style="text-align: left">Tipo de permiso</th>
-                    <th>Desde</th>
-                    <th>Hasta</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
             <tbody>
-                <tr>
-                    <td colspan="6"><br></td>
-                </tr>
                 @foreach($permisos as $permiso)
                 <tr>
                     <td style="width: 12%; text-align: right">

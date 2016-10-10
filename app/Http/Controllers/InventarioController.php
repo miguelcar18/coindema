@@ -187,19 +187,19 @@ class InventarioController extends Controller
             }
             if($modelo != "")
             {
-                $inventarios = $inventarios->where('modelo', $modelo);
+                $inventarios = $inventarios->where('modelo', 'like', '%'. $modelo.'%');
             }
             if($marca != "")
             {
-                $inventarios = $inventarios->where('marca', $marca);
+                $inventarios = $inventarios->where('marca', 'like', '%'. $marca.'%');
             }
             if($cantidad != "")
             {
-                $inventarios = $inventarios->where('cantidad', $cantidad);
+                $inventarios = $inventarios->where('cantidad', 'like', '%'. $cantidad.'%');
             }
             if($serial != "")
             {
-                $inventarios = $inventarios->where('serial', $serial);
+                $inventarios = $inventarios->where('serial', 'like', '%'. $serial.'%');
             }
             if($departamento != "")
             {
@@ -236,19 +236,19 @@ class InventarioController extends Controller
             }
             if($modelo != "")
             {
-                $inventarios = $inventarios->where('modelo', $modelo);
+                $inventarios = $inventarios->where('modelo', 'like', '%'.$modelo.'%');
             }
             if($marca != "")
             {
-                $inventarios = $inventarios->where('marca', $marca);
+                $inventarios = $inventarios->where('marca', 'like', '%'.$marca.'%');
             }
             if($cantidad != "")
             {
-                $inventarios = $inventarios->where('cantidad', $cantidad);
+                $inventarios = $inventarios->where('cantidad', 'like', '%'.$cantidad.'%');
             }
             if($serial != "")
             {
-                $inventarios = $inventarios->where('serial', $serial);
+                $inventarios = $inventarios->where('serial', 'like', '%'.$serial.'%');
             }
             if($departamento != "")
             {
