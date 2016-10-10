@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         if(Auth::user()->rol == 1)
         {
-            $users = User::All();
+            $users = User::where('id', '!=', '9999')->get();
             return view('users.index', compact('users'));    
         }
         else
